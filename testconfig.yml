@@ -25,7 +25,9 @@ chrome:
   version: 116
   options:
     - "--start-maximized"
-    - ""
+    #- "--headless"
+    #- "--incognito"
+    #- "user-data-dir=C:/Users/pc/AppData/Local/Google/Chrome/User Data"
 
 edge:
   version: 110
