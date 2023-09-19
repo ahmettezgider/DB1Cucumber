@@ -16,7 +16,7 @@ users:
 
 
 tests:
-  browser: CHROME # FIREFOX, EDGE
+  browser: CHROME # FIREFOX, EDGE, SAFARI
   features: "c:/features"
   tags: ""
 
@@ -24,7 +24,7 @@ tests:
 chrome:
   version: 116
   options:
-    - ""
+    - "--start-maximized"
     - ""
 
 edge:

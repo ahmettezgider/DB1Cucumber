@@ -11,7 +11,7 @@ public class TestConfigReader {
     private static TestConfigReader instance;
     private TestConfig config;
 
-    private TestConfigReader(){
+    public TestConfigReader(){
         File file = new File(CONFIG_FILE);
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {

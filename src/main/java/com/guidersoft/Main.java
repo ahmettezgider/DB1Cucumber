@@ -3,9 +3,7 @@ package com.guidersoft;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.guidersoft.config.TestConfig;
-import com.guidersoft.config.TestConfigInnerClass;
 import com.guidersoft.config.TestConfigReader;
-import com.guidersoft.config.User;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,8 +11,12 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
+        TestConfig config1 = new TestConfigReader().getConfig();
         TestConfig config = TestConfigReader.instance().getConfig();
         System.out.println("config.getApplication().getName() = " + config.getApplication().getName());
+        System.out.println("config.getTests().getBrowser() = " + config.getTests().getBrowser());
+
+        System.out.println("config.getUser(\"tester\").getName() = " + config.getUser("tester").getPassword());
 
     }
 
@@ -36,7 +38,7 @@ public class Main {
                 .getPassword();
          */
 
-        for (User user : config1.getUsers()) {
+        for (TestConfig.User user : config1.getUsers()) {
             if (user.getName().equalsIgnoreCase("admin")){
                 pass = user.getPassword();
                 break;
