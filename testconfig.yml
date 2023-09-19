@@ -1,0 +1,48 @@
+---
+application:
+  name: "Automation Exercise"
+  url: "https://automationexercise.com/"
+
+users:
+  - name: "admin"
+    username: "admin"
+    password: "admin1"
+  - name: "tester"
+    username: "tester"
+    password: "tester1"
+  - name: "user"
+    username: "user"
+    password: "user1"
+
+
+tests:
+  browser: CHROME # FIREFOX, EDGE
+  features: "c:/features"
+  tags: ""
+
+
+chrome:
+  version: 116
+  options:
+    - ""
+    - ""
+
+edge:
+  version: 110
+  options:
+    - ""
+    - ""
+
+firefox:
+  version: 62
+  options:
+    - ""
+    - ""
+
+variables:
+  var1: "variable1"
+  var2: "variable2"
+  var3: "variable3"
+  var4: "variable4"
+  aaa: "bbbbbb"
+  ali.veli.deli: "121312312312"
