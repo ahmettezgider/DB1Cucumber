@@ -25,7 +25,6 @@ public class LoginSteps {
     @When("^user clicks (LOGIN|SIGNUP|HOME|CART|PRODUCTS|CONTACTUS) on menu$")
     public void userClicksSignupLoginOnMenu(String menuText) {
 
-
         switch (menuText){
             case "LOGIN":
             case "SIGNUP":
@@ -43,7 +42,6 @@ public class LoginSteps {
             case "CONTACTUS":
                 menu.contactUs.click();
         }
-
 
         /*
         String locatorStr = "//ul[@class='nav navbar-nav']//a[contains(., '%s')]";

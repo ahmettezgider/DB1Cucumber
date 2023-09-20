@@ -25,4 +25,6 @@ public class MenuObjects {
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(., 'Contact us')]")
     public WebElement  contactUs;
+
+
 }

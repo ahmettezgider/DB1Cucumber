@@ -9,7 +9,6 @@ import java.time.Duration;
 
 public enum Menu {
     // public static final Menu MENU = new Menu(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Home')]"));
-
     HOME(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Home')]")),
     LOGIN(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Signup / Login')]")),
     CART(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Cart')]")),
