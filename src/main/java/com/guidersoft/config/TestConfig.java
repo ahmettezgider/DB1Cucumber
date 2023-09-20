@@ -22,9 +22,8 @@ public class TestConfig {
     private Browser firefox;
     private Map<String, String> variables;
 
-
     public User getUser(String userType){
-        return users.stream().filter(u -> u.getName().equalsIgnoreCase(userType)).findFirst().get();
+        return users.stream().filter(u -> u.getType().equalsIgnoreCase(userType)).findFirst().get();
     }
 
     @Data
@@ -48,6 +47,7 @@ public class TestConfig {
 
     @Data
     public static class User {
+        private String type;
         private String name;
         private String username;
         private String password;
