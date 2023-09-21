@@ -28,6 +28,7 @@ chrome:
   version: 116
   options:
     - "--start-maximized"
+    - "--disable-popup-blocking"
     #- "--headless"
     #- "--incognito"
     #- "user-data-dir=C:/Users/pc/AppData/Local/Google/Chrome/User Data"

@@ -2,6 +2,7 @@ package com.guidersoft.stepdefs;
 
 import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;
+import com.guidersoft.pageobjects.Homepage;
 import com.guidersoft.pageobjects.Menu;
 import com.guidersoft.pageobjects.MenuObjects;
 import com.guidersoft.webdriver.Driver;
@@ -13,12 +14,12 @@ import org.openqa.selenium.By;
 
 public class LoginSteps {
 
+    Homepage home = new Homepage();
     MenuObjects menu = new MenuObjects();
 
     @Given("user on homepage")
     public void userOnHomepage() {
-        TestConfig config = TestConfigReader.instance().getConfig();
-        Driver.getDriver().get(config.getApplication().getUrl());
+        home.gotoPage();
     }
 
 
@@ -66,6 +67,8 @@ public class LoginSteps {
     @When("^user clicks (LOGIN|SIGNUP|HOME|CART|PRODUCTS|CONTACTUS) on menu with Enum$")
     public void userClicksSignupLoginOnMenuWithEnum(String menuText) {
 
+        Menu.valueOf(menuText).click();
+        /*
         switch (menuText){
             case "LOGIN":
             case "SIGNUP":
@@ -83,6 +86,7 @@ public class LoginSteps {
             case "CONTACTUS":
                 Menu.CONTACTUS.click();
         }
+         */
 
     }
 

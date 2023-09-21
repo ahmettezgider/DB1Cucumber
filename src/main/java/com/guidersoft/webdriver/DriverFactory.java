@@ -10,6 +10,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.io.File;
+import java.util.Arrays;
+
 public class DriverFactory {
 
     private static ChromeDriver createChrome(TestConfig config){
@@ -18,6 +21,7 @@ public class DriverFactory {
             if (option.length()>0)
                 options.addArguments(option);
         }
+        options.addExtensions(new File("crx/add_blocker_extension_4_44_0_0.crx"));
         return new ChromeDriver(options);
     }
 

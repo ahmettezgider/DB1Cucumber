@@ -5,7 +5,12 @@ Feature: Login
     Given user on homepage
 
     When  user clicks SIGNUP on menu with Enum
-
+    When  user clicks PRODUCTS on menu with Enum
+    When  user clicks CART on menu with Enum
+    When  user clicks SIGNUP on menu with Enum
+    When  user clicks PRODUCTS on menu with Enum
+    When  user clicks CART on menu with Enum
+    When  user clicks SIGNUP on menu with Enum
     And   user fills the login form as "user"
 
     And   user clicks to button "Login"

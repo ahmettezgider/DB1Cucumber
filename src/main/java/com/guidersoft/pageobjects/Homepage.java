@@ -1,21 +1,27 @@
 package com.guidersoft.pageobjects;
 
 import com.guidersoft.base.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.guidersoft.config.TestConfig;
+import com.guidersoft.config.TestConfigReader;
+import com.guidersoft.webdriver.Driver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class Homepage extends BaseTest {
 
-    @FindBy(css = "aa")
-    public WebElement aa;
 
-    By home = By.xpath("asdasd");
+    public void gotoPage(){
+        TestConfig config = TestConfigReader.instance().getConfig();
+        driver.get(config.getApplication().getUrl());
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        String win = driver.getWindowHandle();
+        String newWin = driver.getWindowHandles()
+                .stream()
+                .filter(wh -> !wh.equals(win))
+                .findFirst().get();
+        driver.switchTo().window(newWin).close();
+        driver.switchTo().window(win);
 
-
-    public void login(){
-        click(aa);
-        click(home);
 
     }
 
