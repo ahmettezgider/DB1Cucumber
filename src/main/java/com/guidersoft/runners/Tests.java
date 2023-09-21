@@ -14,6 +14,6 @@ import org.junit.runner.RunWith;
 
 )
 
-public class RunnerLogin {
+public class Tests {
 
 }

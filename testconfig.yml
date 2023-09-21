@@ -20,7 +20,7 @@ users:
 
 tests:
   browser: CHROME # FIREFOX, EDGE, SAFARI
-  features: "c:/features"
+  features: "src/main/resources/features/01Login.feature"
   tags: ""
 
 

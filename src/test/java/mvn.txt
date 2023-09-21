@@ -1,0 +1,48 @@
+Consolda
+
+    mvn test    : src/test  altindaki tüm testleri run eder
+    mvn clean   : target'i temizler
+    mvn install : yükler ve testleri run
+    mvn package : jar dosyasi oluturur
+
+    mvn -Dtest=Tests/DriverTest test
+        : Tests/DriverTest  class'indaki testleri run eder
+
+    mvn -Dtest=Test1,Test2 test
+        : Test1 ve Test2  class'larindaki testleri run eder
+
+    mvn -Dtest=**/Test1 test
+        : src/test altinda herhangi bir packageda bulunan Test1 class'indaki testleri run eder
+
+    mvn -Dtest=Tests/DriverTest#testFizBuzz test
+        : Tests/DriverTest class'i icindeki testFizBuzz test methodunu run eder
+
+
+    -D : bu classlar src/test/java icinde olmali
+
+
+src/main icindeki herhangi bir class'in main methodunu run etmek istersek
+
+    mvn compile exec:java -D exec.mainClass="com.guidersoft.runners.TestRunner"
+
+
+
+//  Hangi testlerin run edilecegini belirlemek icin kullanilan plugin
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>**/TestRunner1.java</includes>
+                    <systemProperties>
+                        <property>
+                            <name>cucumber.features</name>
+                            <value>c:/</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
