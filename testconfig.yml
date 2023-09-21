@@ -7,15 +7,15 @@ users:
   - type: "admin"
     name: "Ahmet"
     username: "atezgider@gmail.com"
-    password: "ahmet123"
+    password: "atezgider"
   - type: "tester"
     name: "Ahmet"
     username: "atezgider@gmail.com"
-    password: "ahmet123"
+    password: "atezgider"
   - type: "user"
     name: "Ahmet"
     username: "atezgider@gmail.com"
-    password: "ahmet123"
+    password: "atezgider"
 
 
 tests:

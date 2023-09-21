@@ -1,6 +1,7 @@
 package com.guidersoft.pageobjects;
 
 import com.guidersoft.webdriver.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -25,6 +26,13 @@ public class MenuObjects {
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(., 'Contact us')]")
     public WebElement  contactUs;
+
+
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(., 'Logout')]")
+    public WebElement logout;
+
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(., 'Delete Account')]")
+    public WebElement deleteAccount;
 
 
 }

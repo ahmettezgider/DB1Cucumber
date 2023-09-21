@@ -1,6 +1,8 @@
 package com.guidersoft.pageobjects;
 
 import com.guidersoft.base.BaseTest;
+import com.guidersoft.config.TestConfig;
+import com.guidersoft.config.TestConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,5 +38,9 @@ public class LoginSignup extends BaseTest {
         click(buttonLogin);
     }
 
+    public void login(String userType){
+        TestConfig.User user = TestConfigReader.instance().getConfig().getUser(userType);
+        login(user.getUsername(), user.getPassword());
+    }
 
 }

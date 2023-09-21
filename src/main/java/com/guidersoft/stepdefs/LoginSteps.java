@@ -7,11 +7,14 @@ import com.guidersoft.pageobjects.LoginSignup;
 import com.guidersoft.pageobjects.Menu;
 import com.guidersoft.pageobjects.MenuObjects;
 import com.guidersoft.webdriver.Driver;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+
+import java.util.Map;
 
 public class LoginSteps {
 
@@ -101,18 +104,32 @@ public class LoginSteps {
                 .getUsers().stream().filter(u -> u.getType().equals(userType))
                 .findFirst().get();
         */
+
+        /*
         TestConfig.User user = TestConfigReader.instance().getConfig().getUser(userType);
 
         loginSignup.login(user.getUsername(), user.getPassword());
+         */
 
+        loginSignup.login(userType);
 
-    }
-
-    @And("user clicks to button {string}")
-    public void userClicksToButton(String arg0) {
     }
 
     @Then("login should be successful")
     public void loginShouldBeSuccessful() {
+        Menu.LOGOUT.shouldBeVisible();
+    }
+
+    @And("user login email as {string} and password as {string}")
+    public void userLoginEmailAsAndPasswordAs(String email, String password) {
+        loginSignup.login(email, password);
+    }
+
+    @And("user login with following credentials")
+    public void userLoginWithFollowingCredentials(DataTable table) {
+        Map<String, String> data = table.asMap();
+        String email = data.get("email");
+        String password = data.get("password");
+        loginSignup.login(email, password);
     }
 }

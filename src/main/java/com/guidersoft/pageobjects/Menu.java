@@ -14,17 +14,23 @@ public enum Menu {
     SIGNUP(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Signup / Login')]")),
     CART(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Cart')]")),
     PRODUCTS(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Products')]")),
-    CONTACTUS(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Contact us')]"))
+    CONTACTUS(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Contact us')]")),
+    LOGOUT(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Logout')]")),
+    DELETEACCOUNT(By.xpath("//ul[@class='nav navbar-nav']//a[contains(., 'Delete Account')]"))
     ;
 
     private By locator;
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
     Menu(By locator) {
         this.locator = locator;
     }
 
     public void click(){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+    }
+
+    public void shouldBeVisible(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

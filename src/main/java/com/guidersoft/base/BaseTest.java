@@ -28,7 +28,7 @@ public abstract class BaseTest {
 
 
     public void click(WebElement element){
-        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 
         wait.until(driver -> {
             try {
