@@ -81,6 +81,7 @@
 
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -88,7 +89,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <includes>**/TestRunner1.java</includes>
+                    <includes>
+                        <include>**/TestRunner1.java</include>
+                    </includes>
                     <systemProperties>
                         <property>
                             <name>cucumber.features1</name>
