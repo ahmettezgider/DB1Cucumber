@@ -35,6 +35,7 @@ public class TestConfig {
     @Data
     public static class Browser {
         private Integer version;
+        private List<String> extensions = new ArrayList<>();
         private List<String> options = new ArrayList<>();
     }
 

@@ -43,5 +43,14 @@ public abstract class BaseTest {
     }
 
 
+    public void sendKeys(By locator, CharSequence...texts){
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        sendKeys(element, texts);
+    }
+
+    public void sendKeys(WebElement element, CharSequence...texts){
+        wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(texts);
+    }
+
 
 }

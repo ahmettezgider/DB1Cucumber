@@ -11,26 +11,37 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class DriverFactory {
 
     private static ChromeDriver createChrome(TestConfig config){
         ChromeOptions options = new ChromeOptions();
+
         for (String option : config.getChrome().getOptions()) {
-            if (option.length()>0)
+            if (option.trim().length()>0)
                 options.addArguments(option);
         }
-        options.addExtensions(new File("crx/add_blocker_extension_4_44_0_0.crx"));
+
+        for (String extension : config.getChrome().getExtensions()) {
+            if (extension.trim().length()>0)
+                options.addExtensions(new File(extension));
+        }
+
         return new ChromeDriver(options);
     }
 
 
     private static EdgeDriver createEdgeDriver(TestConfig config){
         EdgeOptions options = new EdgeOptions();
+
         for (String option : config.getEdge().getOptions()) {
-            if (option.length()>0)
+            if (option.trim().length()>0)
                 options.addArguments(option);
+        }
+
+        for (String extension : config.getChrome().getExtensions()) {
+            if (extension.trim().length()>0)
+                options.addExtensions(new File(extension));
         }
         return new EdgeDriver(options);
     }

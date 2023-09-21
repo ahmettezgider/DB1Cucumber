@@ -3,6 +3,7 @@ package com.guidersoft.stepdefs;
 import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;
 import com.guidersoft.pageobjects.Homepage;
+import com.guidersoft.pageobjects.LoginSignup;
 import com.guidersoft.pageobjects.Menu;
 import com.guidersoft.pageobjects.MenuObjects;
 import com.guidersoft.webdriver.Driver;
@@ -16,6 +17,8 @@ public class LoginSteps {
 
     Homepage home = new Homepage();
     MenuObjects menu = new MenuObjects();
+
+    LoginSignup loginSignup = new LoginSignup();
 
     @Given("user on homepage")
     public void userOnHomepage() {
@@ -68,6 +71,7 @@ public class LoginSteps {
     public void userClicksSignupLoginOnMenuWithEnum(String menuText) {
 
         Menu.valueOf(menuText).click();
+
         /*
         switch (menuText){
             case "LOGIN":
@@ -90,8 +94,18 @@ public class LoginSteps {
 
     }
 
-    @And("user fills the login form as {string}")
-    public void userFillsTheLoginFormAs(String arg0) {
+    @And("user login as {string}")
+    public void userFillsTheLoginFormAs(String userType) {
+        /*
+        TestConfig.User user = TestConfigReader.instance().getConfig()
+                .getUsers().stream().filter(u -> u.getType().equals(userType))
+                .findFirst().get();
+        */
+        TestConfig.User user = TestConfigReader.instance().getConfig().getUser(userType);
+
+        loginSignup.login(user.getUsername(), user.getPassword());
+
+
     }
 
     @And("user clicks to button {string}")

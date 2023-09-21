@@ -26,6 +26,9 @@ tests:
 
 chrome:
   version: 116
+  extensions:
+    - "crx/add_blocker_extension_4_44_0_0.crx"
+    - ""
   options:
     - "--start-maximized"
     - "--disable-popup-blocking"
@@ -35,12 +38,17 @@ chrome:
 
 edge:
   version: 110
+  extensions:
+    - "crx/add_blocker_extension_4_44_0_0.crx"
+    - ""
   options:
     - ""
     - ""
 
 firefox:
   version: 62
+  extensions:
+    - ""
   options:
     - ""
     - ""
