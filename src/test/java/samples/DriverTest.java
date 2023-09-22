@@ -1,4 +1,4 @@
-package Tests;
+package samples;
 
 import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;

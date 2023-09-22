@@ -132,4 +132,14 @@ public class LoginSteps {
         String password = data.get("password");
         loginSignup.login(email, password);
     }
+
+    @And("user fills the New User Signup form as follows")
+    public void userFillsTheNewUserSignupFormAsFollows(DataTable table) {
+        Map<String, String> data = table.asMap();
+
+        String name = data.get("name");
+        String email = data.get("email");
+        loginSignup.signup(name, email);
+
+    }
 }

@@ -9,8 +9,14 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/main/resources/features"}
-        ,glue = {"com/guidersoft/stepdefs"}
+        , glue = {"com/guidersoft/stepdefs"}
         //,tags = ""
+        , plugin = {"pretty",
+            "html:target/cucumber/cucumber.html",
+            "json:target/cucumber/cucumber.json",
+            "testng:target/cucumber/cucumber.xml",
+            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+}
 
 )
 

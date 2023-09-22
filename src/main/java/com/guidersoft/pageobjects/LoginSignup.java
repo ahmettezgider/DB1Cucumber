@@ -31,6 +31,14 @@ public class LoginSignup extends BaseTest {
     @FindBy(css = ".signup-form button")
     public WebElement buttonSignup;
 
+    @FindBy(id = "id_gender1")
+    public WebElement registerMr;
+
+    @FindBy(id = "id_gender2")
+    public WebElement registerMrs;
+
+
+
 
     public void login(String email, String password){
         sendKeys(inputLoginEmail, email);
@@ -41,6 +49,12 @@ public class LoginSignup extends BaseTest {
     public void login(String userType){
         TestConfig.User user = TestConfigReader.instance().getConfig().getUser(userType);
         login(user.getUsername(), user.getPassword());
+    }
+
+    public void signup(String name, String email){
+        sendKeys(inputSignupName, name);
+        sendKeys(inputSignupEmail,email);
+        click(buttonSignup);
     }
 
 }

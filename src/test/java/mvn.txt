@@ -5,8 +5,8 @@ Consolda
     mvn install : yükler ve testleri run
     mvn package : jar dosyasi oluturur
 
-    mvn -Dtest=Tests/DriverTest test
-        : Tests/DriverTest  class'indaki testleri run eder
+    mvn -Dtest=tests/DriverTest test
+        : tests/DriverTest  class'indaki testleri run eder
 
     mvn -Dtest=Test1,Test2 test
         : Test1 ve Test2  class'larindaki testleri run eder
@@ -14,8 +14,8 @@ Consolda
     mvn -Dtest=**/Test1 test
         : src/test altinda herhangi bir packageda bulunan Test1 class'indaki testleri run eder
 
-    mvn -Dtest=Tests/DriverTest#testFizBuzz test
-        : Tests/DriverTest class'i icindeki testFizBuzz test methodunu run eder
+    mvn -Dtest=tests/DriverTest#testFizBuzz test
+        : tests/DriverTest class'i icindeki testFizBuzz test methodunu run eder
 
 
     -D : bu classlar src/test/java icinde olmali

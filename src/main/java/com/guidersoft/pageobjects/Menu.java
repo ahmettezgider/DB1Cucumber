@@ -20,17 +20,19 @@ public enum Menu {
     ;
 
     private By locator;
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
 
     Menu(By locator) {
         this.locator = locator;
     }
 
     public void click(){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
     }
 
     public void shouldBeVisible(){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
