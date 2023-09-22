@@ -29,7 +29,7 @@ public class CucumberHooks {
             Allure.addAttachment("Screenshot", new ByteArrayInputStream(resim));
              */
 
-
+            // bu kisim hem allure report hem de extent report'a yansitilir
             scenario.attach(resim, "image/png", "Screenshot");
             scenario.log(scenario.getName() + " is failed");
         }
