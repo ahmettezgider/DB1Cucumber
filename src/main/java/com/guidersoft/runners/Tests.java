@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/main/resources/features"}
+        features = {"ff"}
         , glue = {"com/guidersoft/stepdefs"}
         //,tags = ""
         , plugin = {"pretty",

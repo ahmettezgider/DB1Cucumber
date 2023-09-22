@@ -44,6 +44,7 @@ public class TestConfig {
         private Browsers browser;
         private String features;
         private String tags;
+        boolean dryRun;
     }
 
     @Data

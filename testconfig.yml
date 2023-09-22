@@ -22,6 +22,8 @@ tests:
   browser: CHROME # FIREFOX, EDGE, SAFARI
   features: "src/main/resources/features/01Login.feature"
   tags: ""
+  dryRun: false
+
 
 
 chrome:

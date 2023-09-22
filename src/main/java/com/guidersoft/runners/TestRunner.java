@@ -14,10 +14,21 @@ public class TestRunner {
     }
 
     public static void configureCucumber(){
+        // bu system property cucumber optionlarinin system property den alinacagini gösterir
         System.setProperty("cucumber.publish.quite", "true");
         TestConfig config = TestConfigReader.instance().getConfig();
 
-        System.setProperty("cucumber.features", config.getTests().getFeatures());
+        String features = config.getTests().getFeatures();
+        if (features.trim().length()>0)
+            System.setProperty("cucumber.features", config.getTests().getFeatures());
+
+        boolean dryRun = config.getTests().isDryRun();
+        if (dryRun)
+            System.setProperty("cucumber.execution.dry-run", "true");
+
+        String tags = config.getTests().getTags();
+        if (tags.trim().length()>0)
+            System.setProperty("cucumber.filter.tags", tags);
 
     }
 
