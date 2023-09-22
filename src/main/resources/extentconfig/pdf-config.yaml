@@ -7,7 +7,7 @@ displayDetailed: true
 displayExpanded: false
 displayAttached: true
 summaryConfig:
-  title: Grasshopper PDF Report
+  title: Cucumber PDF Report
   dataBackgroundColor: 4F0CC8
   titleColor: FF0000
   dateColor: 969696

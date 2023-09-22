@@ -15,9 +15,9 @@ import org.junit.runner.RunWith;
             "html:target/cucumber/cucumber.html",
             "json:target/cucumber/cucumber.json",
             "testng:target/cucumber/cucumber.xml",
-            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-}
-
+            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+            "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+        }
 )
 
 public class Tests {
