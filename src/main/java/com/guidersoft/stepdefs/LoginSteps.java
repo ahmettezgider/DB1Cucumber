@@ -12,9 +12,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import java.util.Map;
+import java.util.Properties;
 
 public class LoginSteps {
 
@@ -141,5 +143,17 @@ public class LoginSteps {
         String email = data.get("email");
         loginSignup.signup(name, email);
 
+    }
+
+    Properties properties = new Properties();
+    @When("user save {string} as {string}")
+    public void userSaveAs(String value, String variable) {
+        properties.setProperty(variable, value);
+    }
+
+    @Then("{string} degeri {string} olmali")
+    public void degeriOlmali(String variable, String value) {
+        String val = properties.getProperty(variable);
+        Assert.assertEquals(val, value);
     }
 }

@@ -16,3 +16,8 @@ Feature: Login
       | email | newuser123@user.com |
 
     Then  login should be successful
+
+
+  Scenario: aaa
+    When  user save "1000" as "miktar"
+    Then  "miktar" degeri "1000" olmali
