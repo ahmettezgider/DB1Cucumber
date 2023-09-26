@@ -6,7 +6,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -156,6 +155,39 @@ public class _02ExcelRead1 {
         outputStream.close();
 
     }
+
+
+
+    @Test
+    public void creteExcelFile2() throws IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+
+        XSSFSheet sheet1 = workbook.createSheet("Sayfa1");
+        Row row1 = sheet1.createRow(0);
+        for (int i = 0; i < 10; i++) {
+            row1.createCell(i).setCellValue(i+1);
+        }
+
+        XSSFSheet sheet2 = workbook.createSheet("Sayfa2");
+        for (int i = 0; i < 10; i++) {
+            Row row = sheet2.createRow(i);
+            row.createCell(0).setCellValue(i+1);
+        }
+
+
+
+
+
+
+        String file = "src/test/java/fileProcess/MyExcel_creteExcelFile2.xlsx";
+        FileOutputStream outputStream = new FileOutputStream(file);
+        workbook.write(outputStream);
+        outputStream.close();
+
+    }
+
+
+
 
 
 
