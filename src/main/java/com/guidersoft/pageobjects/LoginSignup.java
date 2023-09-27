@@ -46,12 +46,6 @@ public class LoginSignup extends BaseTest {
     public WebElement registerPassword;
 
 
-    String inputXpath = "//*[starts-with(text(),'%s')]/parent::p//input";
-
-    public WebElement getInput(String text){
-        By locator = By.xpath(String.format(inputXpath,text));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
 
     public void login(String email, String password){
         sendKeys(inputLoginEmail, email);

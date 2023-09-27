@@ -8,6 +8,7 @@ import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import utils.Utils;
 
 import java.io.ByteArrayInputStream;
 
@@ -38,6 +39,7 @@ public class CucumberHooks {
     // after scenario
     @After
     public void afterScenario(){
+        Utils.sleep(5);
         Driver.quit();
     }
 }

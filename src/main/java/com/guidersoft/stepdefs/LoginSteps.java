@@ -1,5 +1,6 @@
 package com.guidersoft.stepdefs;
 
+import com.guidersoft.base.BaseTest;
 import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;
 import com.guidersoft.pageobjects.Homepage;
@@ -18,7 +19,7 @@ import org.openqa.selenium.By;
 import java.util.Map;
 import java.util.Properties;
 
-public class LoginSteps {
+public class LoginSteps extends BaseTest {
 
     Homepage home = new Homepage();
     MenuObjects menu = new MenuObjects();
@@ -155,5 +156,21 @@ public class LoginSteps {
     public void degeriOlmali(String variable, String value) {
         String val = properties.getProperty(variable);
         Assert.assertEquals(val, value);
+    }
+
+    @When("user fill the input {string} as {string}")
+    public void userFillTheInputAs(String labelOrAttribute, String value) {
+        sendKeys(getInput(labelOrAttribute), value);
+
+    }
+
+    @When("user fill the {int}.th input {string} as {string}")
+    public void userFillTheThInputAs(int index, String labelOrAttribute, String value) {
+        sendKeys(getInput(labelOrAttribute, index), value);
+    }
+
+    @And("user clicks the button {string}")
+    public void userClicksTheButton(String labelOrAttribute) {
+        click(getButton(labelOrAttribute));
     }
 }
