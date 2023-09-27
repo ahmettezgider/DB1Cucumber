@@ -1,0 +1,13 @@
+
+
+
+@Test
+
+userData.xlsx deki username, password, login -> List<List<String>> aliyorsunuz
+
+Bu listedeki veriler ile
+    https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+adrese login yapmaya calisiyorsunuz
+
+login = false olanlarin login olmadigini assert edip bir sonraki kayda geciyorsunuz
+login = true olanin ise login oldugunu assert ediyorsunuz

@@ -3,9 +3,11 @@ package com.guidersoft.pageobjects;
 import com.guidersoft.base.BaseTest;
 import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginSignup extends BaseTest {
 
@@ -37,8 +39,19 @@ public class LoginSignup extends BaseTest {
     @FindBy(id = "id_gender2")
     public WebElement registerMrs;
 
+    @FindBy(id = "name")
+    public WebElement registerName;
+
+    @FindBy(id = "password")
+    public WebElement registerPassword;
 
 
+    String inputXpath = "//*[starts-with(text(),'%s')]/parent::p//input";
+
+    public WebElement getInput(String text){
+        By locator = By.xpath(String.format(inputXpath,text));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     public void login(String email, String password){
         sendKeys(inputLoginEmail, email);

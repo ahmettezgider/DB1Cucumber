@@ -135,7 +135,7 @@ public class LoginSteps {
         loginSignup.login(email, password);
     }
 
-    @And("user fills the New User Signup form as follows")
+    @And("user fills the New User Signup form as follows then clicks signup")
     public void userFillsTheNewUserSignupFormAsFollows(DataTable table) {
         Map<String, String> data = table.asMap();
 

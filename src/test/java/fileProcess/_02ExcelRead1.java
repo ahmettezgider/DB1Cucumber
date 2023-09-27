@@ -157,7 +157,6 @@ public class _02ExcelRead1 {
     }
 
 
-
     @Test
     public void creteExcelFile2() throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -165,19 +164,14 @@ public class _02ExcelRead1 {
         XSSFSheet sheet1 = workbook.createSheet("Sayfa1");
         Row row1 = sheet1.createRow(0);
         for (int i = 0; i < 10; i++) {
-            row1.createCell(i).setCellValue(i+1);
+            row1.createCell(i).setCellValue(i + 1);
         }
 
         XSSFSheet sheet2 = workbook.createSheet("Sayfa2");
         for (int i = 0; i < 10; i++) {
             Row row = sheet2.createRow(i);
-            row.createCell(0).setCellValue(i+1);
+            row.createCell(0).setCellValue(i + 1);
         }
-
-
-
-
-
 
         String file = "src/test/java/fileProcess/MyExcel_creteExcelFile2.xlsx";
         FileOutputStream outputStream = new FileOutputStream(file);
@@ -187,8 +181,26 @@ public class _02ExcelRead1 {
     }
 
 
+    @Test
+    public void createExcelFile3() throws IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
 
+        XSSFSheet sheet1 = workbook.createSheet("Sayfa1");
 
+        for (int i = 0; i <10; i++) {
+            Row row = sheet1.createRow(i);
+            for (int j = 0; j < 10; j++) {
+                row.createCell(j).setCellValue(i*10+j+1);
+            }
+        }
+
+        String file = "src/test/java/fileProcess/excelExample3.xlsx";
+
+        FileOutputStream outputStream = new FileOutputStream(file);
+        workbook.write(outputStream);
+        outputStream.close();
+
+    }
 
 
     public List<List<String>> getData(String path) throws IOException {
@@ -211,7 +223,7 @@ public class _02ExcelRead1 {
 
             for (int j = 0; j < cells; j++) {
                 Cell cell = row.getCell(j);
-                if (cell!=null)
+                if (cell != null)
                     rowData.add(cell.toString());
                 else
                     rowData.add("");
@@ -220,8 +232,6 @@ public class _02ExcelRead1 {
         }
         return data;
     }
-
-
 
 
     public List<List<String>> getData(String path, String sheetName, int startRow, int endRow, int startCell, int endCell) throws IOException {
@@ -236,12 +246,12 @@ public class _02ExcelRead1 {
 
         int rowNum = sheet.getPhysicalNumberOfRows();
 
-        endRow = endRow<rowNum ? endRow : rowNum;
+        endRow = endRow < rowNum ? endRow : rowNum;
 
         for (int i = startRow; i < endRow; i++) {
             Row row = sheet.getRow(i);
             int cells = row.getPhysicalNumberOfCells();
-            endCell = endCell<cells ? endCell : cells;
+            endCell = endCell < cells ? endCell : cells;
             List<String> rowData = new ArrayList<>();
 
             for (int j = startCell; j < endCell; j++) {
@@ -252,9 +262,6 @@ public class _02ExcelRead1 {
         }
         return data;
     }
-
-
-
 
 
 }
