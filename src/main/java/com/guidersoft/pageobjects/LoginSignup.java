@@ -29,7 +29,6 @@ public class LoginSignup extends BaseTest {
 
     @FindBy(css = ".signup-form [name='name']")
     public WebElement inputSignupName;
-
     @FindBy(css = ".signup-form button")
     public WebElement buttonSignup;
 
