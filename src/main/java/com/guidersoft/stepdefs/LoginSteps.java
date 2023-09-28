@@ -15,6 +15,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.Map;
 import java.util.Properties;
@@ -73,7 +75,7 @@ public class LoginSteps extends BaseTest {
 
     }
 
-    @When("^user clicks (LOGIN|SIGNUP|HOME|CART|PRODUCTS|CONTACTUS) on menu with Enum$")
+    @When("^user clicks (LOGIN|SIGNUP|HOME|CART|PRODUCTS|CONTACTUS|DELETEACCOUNT) on menu with Enum$")
     public void userClicksSignupLoginOnMenuWithEnum(String menuText) {
 
         Menu.valueOf(menuText).click();
@@ -164,6 +166,8 @@ public class LoginSteps extends BaseTest {
 
     }
 
+
+
     @When("user fill the {int}.th input {string} as {string}")
     public void userFillTheThInputAs(int index, String labelOrAttribute, String value) {
         sendKeys(getInput(labelOrAttribute, index), value);
@@ -172,5 +176,30 @@ public class LoginSteps extends BaseTest {
     @And("user clicks the button {string}")
     public void userClicksTheButton(String labelOrAttribute) {
         click(getButton(labelOrAttribute));
+    }
+
+    @Given("title should be {string}")
+    public void titleShouldBe(String title) {
+        //Assert.assertTrue(driver.getTitle().contains(title));
+        wait.until(ExpectedConditions.titleContains(title));
+    }
+
+    @Given("the text {string} is visible")
+    public void theTextIsVisible(String text) {
+        String body = driver.findElement(By.cssSelector("body")).getText();
+        Assert.assertTrue(body.contains(text));
+    }
+
+    @And("user select {string} as Day, {string} as Month, {string} as Year")
+    public void userSelectAsDayAsMonthAsYear(String day, String month, String year) {
+        Select selectDay = new Select(loginSignup.registerDayOfBirth);
+        selectDay.selectByVisibleText(day);
+
+        Select selectMonth = new Select(loginSignup.registerMonthOfBirth);
+        selectMonth.selectByVisibleText(month);
+
+        Select selectYear = new Select(loginSignup.registerYearOfBirth);
+        selectYear.selectByVisibleText(year);
+
     }
 }

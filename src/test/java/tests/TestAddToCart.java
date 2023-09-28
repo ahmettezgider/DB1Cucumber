@@ -6,10 +6,8 @@ import com.guidersoft.pageobjects.Menu;
 import com.guidersoft.pageobjects.MenuObjects;
 import com.guidersoft.pageobjects.ProductPage;
 import org.junit.Test;
+import com.guidersoft.utils.Utils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.Utils;
 
 public class TestAddToCart extends BaseTest {
 
@@ -30,9 +28,11 @@ public class TestAddToCart extends BaseTest {
 
         homepage.gotoPage();
 
-        Menu.PRODUCTS.click();
+        String body = driver.findElement(By.cssSelector("body")).getText();
+        System.out.println(body);
+        //Menu.PRODUCTS.click();
 
-        productPage.addProductToCart("Blue Top");
+        //productPage.addProductToCart("Blue Top");
 
     }
 

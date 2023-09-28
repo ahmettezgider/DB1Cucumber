@@ -29,7 +29,7 @@ public abstract class BaseTest {
 
         wait.until(driver -> {
             try {
-                scrollIntoView(element);
+                //scrollIntoView(element);
                 element.click();
                 return true;
             }catch (StaleElementReferenceException e){
@@ -55,7 +55,7 @@ public abstract class BaseTest {
 
 
     public static final String ATTRIBUTE = "//*[@*[.='%s']]";
-    public static final String INPUT1 = "//*[starts-with(.,'%s')]/parent::p//input";
+    public static final String INPUT1 = "//*[starts-with(.,'%s')]/parent::*//input";
     public static final String BUTTON1 = "//button[starts-with(.,'%s')]";
 
 

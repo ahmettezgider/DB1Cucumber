@@ -44,6 +44,15 @@ public class LoginSignup extends BaseTest {
     @FindBy(id = "password")
     public WebElement registerPassword;
 
+    @FindBy(id = "days")
+    public WebElement registerDayOfBirth;
+
+    @FindBy(id = "months")
+    public WebElement registerMonthOfBirth;
+
+    @FindBy(id = "years")
+    public WebElement registerYearOfBirth;
+
 
 
     public void login(String email, String password){

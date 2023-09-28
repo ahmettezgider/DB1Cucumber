@@ -5,7 +5,6 @@ import com.guidersoft.config.TestConfig;
 import com.guidersoft.config.TestConfigReader;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Utils;
 
 import java.time.Duration;
 
