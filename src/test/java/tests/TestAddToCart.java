@@ -7,8 +7,9 @@ import com.guidersoft.pageobjects.MenuObjects;
 import com.guidersoft.pageobjects.ProductPage;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.Utils;
 
 public class TestAddToCart extends BaseTest {
 
@@ -17,43 +18,39 @@ public class TestAddToCart extends BaseTest {
 
     MenuObjects menu;
 
-    public TestAddToCart(){
+    public TestAddToCart() {
         productPage = new ProductPage();
         homepage = new Homepage();
         menu = new MenuObjects();
     }
 
 
-    Runnable r = new Runnable() {
-        By close = By.id("dismiss-button");
-        int i;
-        @Override
-        public void run() {
-            while (true){
-                try {
-                    driver.switchTo().frame(i++ % 10);
-                    driver.findElement(close).click();
-                    driver.switchTo().parentFrame();
-                }catch (Exception ignored){}
-            }
-        }
-    };
-
     @Test
-    public void addToCart(){
-        Thread t = new Thread(r);
-        t.start();
+    public void addToCart() {
+
         homepage.gotoPage();
 
-        //Menu.PRODUCTS.click();
+        Menu.PRODUCTS.click();
 
         productPage.addProductToCart("Blue Top");
 
-        t.interrupt();
     }
 
-
-
+    @Test
+    public void addToCart1() {
+        homepage.gotoPage();
+        Utils.sleep(1);
+        Utils.sleep(1);
+        Menu.HOME.click();
+        Utils.sleep(1);
+        Menu.LOGIN.click();
+        Utils.sleep(1);
+        Menu.CART.click();
+        Utils.sleep(1);
+        Menu.CONTACTUS.click();
+        Utils.sleep(1);
+        Menu.PRODUCTS.click();
+    }
 
     //button[@class='close']
 }

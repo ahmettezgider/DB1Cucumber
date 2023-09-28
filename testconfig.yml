@@ -19,7 +19,7 @@ users:
 
 
 tests:
-  browser: CHROME # FIREFOX, EDGE, SAFARI
+  browser: CHROME # CHROME, FIREFOX, EDGE, SAFARI
   features: "src/main/resources/features/01Login.feature"
   tags: "@login1"
   dryRun: false
@@ -29,14 +29,14 @@ tests:
 chrome:
   version: 116
   extensions:
-    - "crx/add_blocker_extension_4_44_0_0.crx"
+    #- "crx/add_blocker_extension_4_44_0_0.crx"
     - ""
   options:
     - "--start-maximized"
-    - "--disable-popup-blocking"
+    #- "--disable-popup-blocking"
     #- "--headless"
     #- "--incognito"
-    #- "user-data-dir=C:/Users/pc/AppData/Local/Google/Chrome/User Data"
+    - "user-data-dir=C:/browserProfile/chrome"
 
 edge:
   version: 110
@@ -52,7 +52,7 @@ firefox:
   extensions:
     - ""
   options:
-    - ""
+    - "-private"
     - ""
 
 variables:

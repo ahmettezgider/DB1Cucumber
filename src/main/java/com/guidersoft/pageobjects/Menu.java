@@ -2,6 +2,8 @@ package com.guidersoft.pageobjects;
 
 import com.guidersoft.webdriver.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,8 +29,25 @@ public enum Menu {
     }
 
     public void click(){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        wait.until(driver->{
+            try{
+                driver.findElement(locator).click();
+                return true;
+            }catch (Exception e1){
+                try{
+                    new Actions(driver).moveToElement(driver.findElement(locator)).click().perform();
+                    return true;
+                }catch (Exception e2){
+                    try{
+                        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(locator));
+                        return true;
+                    }catch (Exception e3){
+                        return false;
+                    }
+                }
+            }
+        });
     }
 
     public void shouldBeVisible(){

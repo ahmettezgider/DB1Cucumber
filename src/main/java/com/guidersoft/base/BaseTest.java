@@ -1,10 +1,7 @@
 package com.guidersoft.base;
 
 import com.guidersoft.webdriver.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,6 +29,7 @@ public abstract class BaseTest {
 
         wait.until(driver -> {
             try {
+                scrollIntoView(element);
                 element.click();
                 return true;
             }catch (StaleElementReferenceException e){
@@ -42,6 +40,9 @@ public abstract class BaseTest {
         });
     }
 
+    public void scrollIntoView(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
     public void sendKeys(By locator, CharSequence...texts){
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));

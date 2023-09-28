@@ -11,6 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DriverFactory {
 
@@ -26,6 +28,11 @@ public class DriverFactory {
             if (extension.trim().length()>0)
                 options.addExtensions(new File(extension));
         }
+        /*
+        Map < String, Object > prefs = new HashMap < String, Object > ();
+        prefs.put("profile.managed_default_content_settings.javascript", 2);
+        options.setExperimentalOption("prefs", prefs);
+         */
 
         return new ChromeDriver(options);
     }
@@ -53,6 +60,7 @@ public class DriverFactory {
             if (option.length()>0)
                 options.addArguments(option);
         }
+
         return new FirefoxDriver(options);
     }
 
