@@ -54,3 +54,67 @@ Feature: Login
     When  user clicks DELETEACCOUNT on menu with Enum
     Then  the text "ACCOUNT DELETED!" is visible
 
+  @aaaa
+  Scenario: Register User 2
+    Given user on homepage
+    Given title should be "Automation Exercise"
+    * user clicks LOGIN on menu with Enum
+    Given the text "New User Signup!" is visible
+    * user fills the New User Signup form as follows then clicks signup
+      | name  | newUser1            |
+      | email | newuser123@user.com |
+    Given the text "ENTER ACCOUNT INFORMATION" is visible
+    When  user fill the registerform as follows
+      | Password      | pass       |
+      | days          | 12         |
+      | months        | January    |
+      | years         | 1990       |
+      | First name    | First name |
+      | Last name     | Last name  |
+      | Company       | Company    |
+      | Address *     | Address 1  |
+      | Address 2     | Address 2  |
+      | country       | Canada     |
+      | State         | State      |
+      | City          | City       |
+      | Zipcode       | 123456     |
+      | Mobile Number | 123456789  |
+    And   user clicks the button "Create Account"
+    Then  the text "ACCOUNT CREATED!" is visible
+
+    And   user clicks LOGIN on menu with Enum
+    When  user clicks DELETEACCOUNT on menu with Enum
+    Then  the text "ACCOUNT DELETED!" is visible
+
+
+  @aaaa
+  Scenario: Register User 3
+    Given user on homepage
+    Given title should be "Automation Exercise"
+    * user clicks LOGIN on menu with Enum
+    Given the text "New User Signup!" is visible
+    * user fills the New User Signup form as follows then clicks signup
+      | name  | newUser1            |
+      | email | newuser123@user.com |
+    Given the text "ENTER ACCOUNT INFORMATION" is visible
+    When  user fill the registerform as follows with list
+      | input  | Password      | pass       |
+      | select | days          | 12         |
+      | select | months        | January    |
+      | select | years         | 1990       |
+      | input  | First name    | First name |
+      | input  | Last name     | Last name  |
+      | input  | Company       | Company    |
+      | input  | Address *     | Address 1  |
+      | input  | Address 2     | Address 2  |
+      | select | Country       | Canada     |
+      | input  | State         | State      |
+      | input  | City          | City       |
+      | input  | Zipcode       | 123456     |
+      | input  | Mobile Number | 123456789  |
+    And   user clicks the button "Create Account"
+    Then  the text "ACCOUNT CREATED!" is visible
+
+    And   user clicks LOGIN on menu with Enum
+    When  user clicks DELETEACCOUNT on menu with Enum
+    Then  the text "ACCOUNT DELETED!" is visible

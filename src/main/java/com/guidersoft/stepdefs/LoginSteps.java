@@ -18,6 +18,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -200,6 +201,50 @@ public class LoginSteps extends BaseTest {
 
         Select selectYear = new Select(loginSignup.registerYearOfBirth);
         selectYear.selectByVisibleText(year);
+
+    }
+
+    @When("user fill the registerform as follows")
+    public void userFillTheRegisterformAsFollows(DataTable table) {
+        Map<String, String> data = table.asMap();
+
+        //sendKeys(loginSignup.registerPassword, data.get("Password"));
+        sendKeys(getInput("Password"), data.get("Password"));
+        select("days", data.get("days"));
+        select("months", data.get("months"));
+        select("years", data.get("years"));
+        sendKeys(getInput("First name"), data.get("First name"));
+        sendKeys(getInput("Last name"), data.get("Last name"));
+        sendKeys(getInput("Company"), data.get("Company"));
+        sendKeys(getInput("Address *"), data.get("Address *"));
+        sendKeys(getInput("Address 2"), data.get("Address 2"));
+        select("country", data.get("country"));
+        sendKeys(getInput("State"), data.get("State"));
+        sendKeys(getInput("City"), data.get("City"));
+        sendKeys(getInput("Zipcode"), data.get("Zipcode"));
+        sendKeys(getInput("Mobile Number"), data.get("Mobile Number"));
+
+
+    }
+
+    @When("user fill the registerform as follows with list")
+    public void userFillTheRegisterformAsFollowsWithList(DataTable table) {
+        List<List<String>> data = table.asLists();
+        for (List<String> row : data) {
+            switch (row.get(0)){
+                case "input":
+                    sendKeys(getInput(row.get(1)), row.get(2));
+                    break;
+                case "select":
+                    select(row.get(1), row.get(2));
+                    break;
+                case "checkbox":
+                    break;
+                case "radio":
+                    break;
+            }
+        }
+
 
     }
 }
