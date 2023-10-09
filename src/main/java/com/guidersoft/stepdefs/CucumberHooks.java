@@ -36,7 +36,7 @@ public class CucumberHooks {
     // after scenario
     @After
     public void afterScenario(){
-        Utils.sleep(5);
+        //Utils.sleep(5);
         Driver.quit();
     }
 }

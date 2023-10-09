@@ -191,6 +191,12 @@ public class LoginSteps extends BaseTest {
         Assert.assertTrue(body.contains(text));
     }
 
+    @Given("the text {string} is not visible")
+    public void theTextInVisible(String text) {
+        String body = driver.findElement(By.cssSelector("body")).getText();
+        Assert.assertFalse(body.contains(text));
+    }
+
     @And("user select {string} as Day, {string} as Month, {string} as Year")
     public void userSelectAsDayAsMonthAsYear(String day, String month, String year) {
         Select selectDay = new Select(loginSignup.registerDayOfBirth);
