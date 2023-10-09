@@ -21,7 +21,7 @@ users:
 tests:
   browser: CHROME # CHROME, FIREFOX, EDGE, SAFARI
   features: "src/main/resources/features/01Login.feature"
-  tags: "@aaaa"
+  tags: "@register3"
   dryRun: false
 
 

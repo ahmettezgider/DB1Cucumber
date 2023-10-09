@@ -2,6 +2,7 @@ package com.guidersoft.base;
 
 import com.guidersoft.webdriver.Driver;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,8 +27,6 @@ public abstract class BaseTest {
 
 
     public void click(WebElement element){
-        //wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-
         wait.until(driver -> {
             try {
                 //scrollIntoView(element);
@@ -36,10 +35,33 @@ public abstract class BaseTest {
             }catch (StaleElementReferenceException e){
                 return false;
             }catch (Exception e){
-                return false;
+                try{
+                    new Actions(driver).moveToElement(element).click().perform();
+                    return true;
+                }catch ( Exception e1) {
+                    try{
+                        JavascriptExecutor js = (JavascriptExecutor) driver;
+                        js.executeScript("arguments[0].click()", element);
+                        return true;
+                    }catch (Exception e2){
+                        return false;
+                    }
+                }
             }
         });
     }
+
+    public void clickByActions(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        new Actions(driver).moveToElement(element).click().perform();
+    }
+
+    public void clickByJS(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element);
+    }
+
 
     public void scrollIntoView(WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);

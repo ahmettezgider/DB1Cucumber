@@ -26,7 +26,7 @@ Feature: Login
     And   user fill the input "Password" as "atezgider"
     And   user clicks the button "Login"
 
-  @aaaa
+  @register1
   Scenario: Register User
     Given user on homepage
     Given title should be "Automation Exercise"
@@ -54,7 +54,7 @@ Feature: Login
     When  user clicks DELETEACCOUNT on menu with Enum
     Then  the text "ACCOUNT DELETED!" is visible
 
-  @aaaa
+  @register2
   Scenario: Register User 2
     Given user on homepage
     Given title should be "Automation Exercise"
@@ -87,7 +87,7 @@ Feature: Login
     Then  the text "ACCOUNT DELETED!" is visible
 
 
-  @aaaa
+  @test
   Scenario: Register User 3
     Given user on homepage
     Given title should be "Automation Exercise"

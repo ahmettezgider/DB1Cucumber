@@ -8,10 +8,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"ff"}
-        , glue = {"com/guidersoft/stepdefs"}
+        features = {"src/main/resources/features/01Login.feature"}
+        ,glue = {"com/guidersoft/stepdefs"}
         //,tags = ""
-        , plugin = {"pretty",
+        ,plugin = {"pretty",
             "html:target/cucumber/cucumber.html",
             "json:target/cucumber/cucumber.json",
             "testng:target/cucumber/cucumber.xml",
