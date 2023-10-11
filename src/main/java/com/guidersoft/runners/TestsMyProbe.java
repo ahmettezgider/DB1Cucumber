@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/main/resources/features"}
         ,glue = {"com/guidersoft/stepdefs"}
-        ,tags = "@ContactUs"
+        ,tags = "@ContactUs1"
         ,plugin = {"pretty"}
 )
 

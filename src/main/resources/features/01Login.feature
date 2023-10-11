@@ -97,7 +97,7 @@ Feature: Login
       | name  | newUser1            |
       | email | newuser123@user.com |
     Given the text "ENTER ACCOUNT INFORMATION" is visible
-    When  user fill the registerform as follows with list
+    When  user fill the general form as follows
       | input  | Password      | pass       |
       | select | days          | 12         |
       | select | months        | January    |

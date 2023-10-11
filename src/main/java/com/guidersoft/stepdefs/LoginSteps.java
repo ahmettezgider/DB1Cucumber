@@ -18,6 +18,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -187,14 +191,20 @@ public class LoginSteps extends BaseTest {
 
     @Given("the text {string} is visible")
     public void theTextIsVisible(String text) {
-        String body = driver.findElement(By.cssSelector("body")).getText();
-        Assert.assertTrue(body.contains(text));
+
+        By locator = By.xpath("//*[contains(., '" + text + "')]");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        //String body = driver.findElement(By.cssSelector("body")).getText();
+        //Assert.assertTrue(body.contains(text));
     }
 
     @Given("the text {string} is not visible")
     public void theTextInVisible(String text) {
-        String body = driver.findElement(By.cssSelector("body")).getText();
-        Assert.assertFalse(body.contains(text));
+        By locator = By.xpath("//*[contains(., '" + text + "')]");
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+
+        //String body = driver.findElement(By.cssSelector("body")).getText();
+        //Assert.assertFalse(body.contains(text));
     }
 
     @And("user select {string} as Day, {string} as Month, {string} as Year")
@@ -233,7 +243,7 @@ public class LoginSteps extends BaseTest {
 
     }
 
-    @When("user fill the registerform as follows with list")
+    @When("user fill the general form as follows")
     public void userFillTheRegisterformAsFollowsWithList(DataTable table) {
         List<List<String>> data = table.asLists();
         for (List<String> row : data) {
@@ -243,6 +253,29 @@ public class LoginSteps extends BaseTest {
                     break;
                 case "select":
                     select(row.get(1), row.get(2));
+                    break;
+                case "button":
+                    click(getButton(row.get(1)));
+                    break;
+                case "upload":
+                    click(getButton(row.get(1)));
+                    // Clipboard
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    StringSelection str = new StringSelection(row.get(2));
+                    clipboard.setContents(str, null);
+                    // Clipboard
+
+                    try {
+                        Robot robot;
+                        robot = new Robot();
+                        Thread.sleep(2000);
+                        robot.keyPress(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_V);
+                        robot.keyRelease(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_ENTER);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 case "checkbox":
                     break;
