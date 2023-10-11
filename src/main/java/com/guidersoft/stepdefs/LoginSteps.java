@@ -192,15 +192,16 @@ public class LoginSteps extends BaseTest {
     @Given("the text {string} is visible")
     public void theTextIsVisible(String text) {
 
-        By locator = By.xpath("//*[contains(., '" + text + "')]");
+        By locator = By.xpath("//*[contains(text(), '" + text + "')]");
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
         //String body = driver.findElement(By.cssSelector("body")).getText();
         //Assert.assertTrue(body.contains(text));
     }
 
     @Given("the text {string} is not visible")
     public void theTextInVisible(String text) {
-        By locator = By.xpath("//*[contains(., '" + text + "')]");
+        By locator = By.xpath("//*[contains(text(), '" + text + "')]");
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 
         //String body = driver.findElement(By.cssSelector("body")).getText();
