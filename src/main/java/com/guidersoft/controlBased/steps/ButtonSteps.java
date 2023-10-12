@@ -5,7 +5,12 @@ import io.cucumber.java.en.And;
 
 public class ButtonSteps {
 
-    @And("orangehrm user clicks the button {string}")
+    @And("orangehrm user clicks the {int}.nt {string} button")
+    public void orangehrmUserClicksNthTheButton(int index, String label) {
+        ButtonActions.click(label, index);
+    }
+
+    @And("orangehrm user clicks the {string} button")
     public void orangehrmUserClicksTheButton(String label) {
         ButtonActions.click(label);
     }

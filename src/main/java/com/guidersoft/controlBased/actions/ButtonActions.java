@@ -12,5 +12,4 @@ public class ButtonActions {
         ButtonControl.fromText(text, index).click();
     }
 
-
 }

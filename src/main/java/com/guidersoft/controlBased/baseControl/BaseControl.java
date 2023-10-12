@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class BaseControl {
 
@@ -41,5 +42,14 @@ public class BaseControl {
         });
 
     }
+
+    public <T>void click(T t){
+        if (t.getClass().getName().contains("By")){
+            wait.until(ExpectedConditions.elementToBeClickable((By)t)).click();
+        }else{
+            wait.until(ExpectedConditions.elementToBeClickable((WebElement) t)).click();
+        }
+    }
+
 
 }
