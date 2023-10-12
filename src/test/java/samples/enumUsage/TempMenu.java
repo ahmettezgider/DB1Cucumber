@@ -1,4 +1,4 @@
-package enumUsage;
+package samples.enumUsage;
 
 import com.guidersoft.webdriver.Driver;
 import org.openqa.selenium.By;

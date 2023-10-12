@@ -35,11 +35,5 @@ public class ButtonControl extends BaseControl {
         return element.getText();
     }
 
-    public ButtonControl send(){
-        //
-        //
-        return this;
-    }
-
 
 }

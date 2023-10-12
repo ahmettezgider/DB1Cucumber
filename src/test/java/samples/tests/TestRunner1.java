@@ -1,4 +1,4 @@
-package tests;
+package samples.tests;
 
 
 import io.cucumber.junit.Cucumber;

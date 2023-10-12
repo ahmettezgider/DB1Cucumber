@@ -1,4 +1,4 @@
-package fileProcess;
+package samples.fileProcess;
 
 import java.io.FileReader;
 import java.io.IOException;

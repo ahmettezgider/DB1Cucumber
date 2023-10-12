@@ -1,4 +1,4 @@
-package enumSample;
+package samples.enumSample;
 
 public class Tarayici {
     public static final Tarayici CHROME = new Tarayici();

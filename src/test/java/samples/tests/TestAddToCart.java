@@ -1,4 +1,4 @@
-package tests;
+package samples.tests;
 
 import com.guidersoft.base.BaseTest;
 import com.guidersoft.pageobjects.Homepage;

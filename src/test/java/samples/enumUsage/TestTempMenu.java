@@ -1,4 +1,4 @@
-package enumUsage;
+package samples.enumUsage;
 
 import com.guidersoft.pageobjects.Menu;
 

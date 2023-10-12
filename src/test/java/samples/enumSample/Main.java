@@ -1,4 +1,4 @@
-package enumSample;
+package samples.enumSample;
 
 
 
