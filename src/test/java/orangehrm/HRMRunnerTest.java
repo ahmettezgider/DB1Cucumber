@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"}
 
 )
-public class Runner1 {
+public class HRMRunnerTest {
 }

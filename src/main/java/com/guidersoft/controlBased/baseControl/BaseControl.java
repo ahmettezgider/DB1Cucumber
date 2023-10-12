@@ -43,12 +43,15 @@ public class BaseControl {
 
     }
 
+    // generic method
     public <T>void click(T t){
+        WebElement element;
         if (t.getClass().getName().contains("By")){
-            wait.until(ExpectedConditions.elementToBeClickable((By)t)).click();
+            element = wait.until(ExpectedConditions.presenceOfElementLocated((By)t));
         }else{
-            wait.until(ExpectedConditions.elementToBeClickable((WebElement) t)).click();
+            element = (WebElement) t;
         }
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
 

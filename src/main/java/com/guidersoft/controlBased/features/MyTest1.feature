@@ -6,6 +6,6 @@ Feature: OrangeHRM
     And   orangehrm user fill "Password" as "admin123"
     And   orangehrm user clicks the "Login" button
     *     orangehrm user clicks the "Admin" button
-    *     orangehrm user fill "Username" as "Anthony.Nolan"
-    *     orangehrm from "Employee Name" textbox search "Anthony" then select "Anthony Nolan"
+    *     orangehrm user fill "Username" as "Izabela Pe"
+    *     orangehrm from "Employee Name" textbox search "Paul" then select "Paul Collings"
     *     orangehrm user clicks the 2.nt "Search" button
