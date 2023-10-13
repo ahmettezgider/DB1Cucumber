@@ -27,6 +27,7 @@ src/main icindeki herhangi bir class'in main methodunu run etmek istersek
 
 
 
+
 //  Hangi testlerin run edilecegini belirlemek icin kullanilan plugin
     <build>
         <plugins>
