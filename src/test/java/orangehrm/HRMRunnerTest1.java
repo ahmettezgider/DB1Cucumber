@@ -8,10 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/main/java/com/guidersoft/controlBased/features"},
         glue = {"com/guidersoft/controlBased/steps"},
-        plugin = {"pretty",
-                "json:target/cucumber/cucumber.json"
-        }
+        plugin = {"pretty"}
 
 )
-public class HRMRunnerTest {
+public class HRMRunnerTest1 {
 }
