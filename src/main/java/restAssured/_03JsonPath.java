@@ -1,11 +1,12 @@
 package restAssured;
 
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.equalTo;
@@ -143,4 +144,45 @@ public class _03JsonPath {
         System.out.println(maps.size());
     }
 
+
+    @Test
+    public void test12_getDistinctEmailExtentions() {
+
+        List<String> list = get("https://jsonplaceholder.typicode.com/comments")
+                .jsonPath().getList("email");
+
+        Set<String> set = new TreeSet<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            String[] arr = list.get(i).split("[.]");
+            set.add(arr[arr.length-1]);
+        }
+
+        System.out.println(set);
+
+    }
+
+
+    @Test
+    public void test13_getDistinctEmailExtentions_WithJsonPath() throws MalformedURLException {
+
+        String json = get("https://jsonplaceholder.typicode.com/comments").asString();
+
+        //List<String> list = JsonPath
+        //       .from(json)
+        //       .getList("email");
+        List<String> list = JsonPath
+                .from(new URL("https://jsonplaceholder.typicode.com/comments"))
+                .getList("email");
+
+        Set<String> set = new TreeSet<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            String[] arr = list.get(i).split("[.]");
+            set.add(arr[arr.length-1]);
+        }
+
+        System.out.println(set);
+
+    }
 }
