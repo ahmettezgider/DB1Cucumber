@@ -37,17 +37,19 @@ public class _02Assertions {
 
                 // page==2 olmali
                 .body("page", equalTo(2))
+
                 // datanin ilk objesinin first_name== Michael olmali
                 .body("data[0].first_name", equalTo("Michael"))
+
                 // body nin "support" isimli keyi olmali
                 .body("",hasKey("support"))
                 .body("$",hasKey("support"))    // $ root json'i ifade eder
+
                 // body "contributions" metni icermeli
                 .body(containsString("contributions"))
+
                 // data.first_name icinde "Michael" ve "Lindsay" olmali
                 .body("data.first_name", hasItems("Michael", "Lindsay"))
-
-
         ;
     }
 
