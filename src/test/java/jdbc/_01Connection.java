@@ -36,7 +36,6 @@ public class _01Connection {
          */
 
         while (rs.next()){
-
             int id = rs.getInt(1);
             String first_name = rs.getString(2);
             String last_name = rs.getString("last_name");
@@ -44,7 +43,6 @@ public class _01Connection {
             String age = rs.getString("age");
 
             System.out.printf("%-5d%-15s%-15s%-15s%-3s\n", id, first_name, last_name, country, age);
-
         }
 
         stmt.close();
