@@ -1,5 +1,7 @@
 package jdbc;
 
+import com.guidersoft.config.TestConfig;
+import com.guidersoft.config.TestConfigReader;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -24,6 +26,9 @@ public class _02Connection {
 
     @BeforeTest
     public void setup() throws SQLException {
+
+        //TestConfig config = TestConfigReader.instance().getConfig();
+        //config.getDatabase().getUrl();
 
         String url = "jdbc:mysql://127.0.0.1:3306/guidersoft";
         String username = "jdbc";

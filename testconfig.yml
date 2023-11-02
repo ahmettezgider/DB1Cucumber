@@ -24,6 +24,10 @@ tests:
   tags: "@login"
   dryRun: false
 
+database:
+  url: "jdbc:mysql://127.0.0.1:3306/guidersoft"
+  username: "jdbc"
+  password: "jdbc123456"
 
 
 chrome:

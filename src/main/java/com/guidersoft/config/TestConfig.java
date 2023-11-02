@@ -20,6 +20,7 @@ public class TestConfig {
     private Browser chrome;
     private Browser edge;
     private Browser firefox;
+    private Database database;
     private Map<String, String> variables;
 
     public User getUser(String userType){
@@ -61,6 +62,13 @@ public class TestConfig {
         FIREFOX,
         SAFARI
         ;
+    }
+
+    @Data
+    public static class Database{
+        String url;
+        String username;
+        String password;
     }
 
 }
