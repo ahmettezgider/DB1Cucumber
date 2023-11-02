@@ -62,7 +62,7 @@ public class _07Queries extends BaseConnection {
         stmt.execute(sqlCreate);
         System.out.println(getTable("SELECT * FROM mytable"));
 
-
+        System.out.println("Start : " + LocalDateTime.now());
         for (int i = 0; i <10; i++) {
 
             String firstName = RandomStringUtils.randomAlphabetic(1).toUpperCase() + RandomStringUtils.randomAlphabetic(5, 15).toLowerCase();
@@ -72,7 +72,7 @@ public class _07Queries extends BaseConnection {
             String sqlInsert= "INSERT INTO mytable (first_name, last_name, age) VALUES ('" + firstName + "', '" + lastName + "', "+ age +")";
             stmt.executeUpdate(sqlInsert);
         }
-
+        System.out.println("End : " + LocalDateTime.now());
 
         System.out.println(getTable("SELECT * FROM mytable"));
 
