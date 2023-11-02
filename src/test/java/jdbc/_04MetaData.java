@@ -94,7 +94,7 @@ public class _04MetaData extends BaseConnection{
 
         String format = "%-20s%-5d%.2f\n";
         Object[] arr = {"Ali",10, 1.3};
-        System.out.printf(format, arr);
+        System.out.printf("%-20s%-5d%.2f\n", "Ali",10, 1.3);
     }
 
 }

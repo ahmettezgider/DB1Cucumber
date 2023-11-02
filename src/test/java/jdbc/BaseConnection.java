@@ -22,7 +22,7 @@ public class BaseConnection {
         String password = "jdbc123456";
 
         conn = DriverManager.getConnection(url, username, password );
-        stmt = conn.createStatement();
+        stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
     }
 
 
