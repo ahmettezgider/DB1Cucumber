@@ -16,7 +16,8 @@ public class _05Cursor extends BaseConnection{
 
         //  .next() sonraki kayda gider
         rs.next();
-        System.out.println(rs.getString(2));
+        rs.next();
+        rs.next();
         rs.next();
         System.out.println(rs.getString(2));
 
@@ -30,8 +31,20 @@ public class _05Cursor extends BaseConnection{
         rs.previous();
         System.out.println(rs.getString(2));
 
+        rs.first();
+        System.out.println(rs.getString(2));
 
+        rs.last();
+        System.out.println(rs.getString(2));
 
+        rs.absolute(10);
+        System.out.println(rs.getString(2));
+
+        rs.relative(1);
+        System.out.println(rs.getString(2));
+
+        rs.relative(-2);
+        System.out.println(rs.getString(2));
     }
 
 
